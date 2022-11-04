@@ -1,5 +1,5 @@
 import { Body, Get, Path, Post, Route, Tags } from "tsoa";
-import { Post as PostModel } from "../models/post.model";
+import { PostModel } from "../models/post.model";
 import {
   createPost,
   getPost,

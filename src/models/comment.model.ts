@@ -6,7 +6,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { Post } from "./post.model";
+import { PostModel } from "./post.model";
 import { User } from "./user.model";
 
 @Entity()
@@ -28,7 +28,7 @@ export class Comment {
   postId!: number;
   @ManyToOne((_type) => User, (user: User) => user.comments)
   @JoinColumn()
-  post!: Post;
+  post!: PostModel;
 
   @CreateDateColumn()
   createdAt!: Date;

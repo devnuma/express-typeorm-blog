@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Comment } from "./comment.model";
-import { Post } from "./post.model";
+import { PostModel } from "./post.model";
 
 @Entity()
 export class User {
@@ -22,8 +22,8 @@ export class User {
   @Column()
   email!: string;
 
-  @OneToMany((_type) => Post, (post: Post) => post.user)
-  posts!: Array<Post>;
+  @OneToMany((_type) => PostModel, (post: PostModel) => post.user)
+  posts!: Array<PostModel>;
 
   @OneToMany((_type) => Comment, (comment: Comment) => comment.user)
   comments!: Array<Comment>;

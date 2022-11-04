@@ -1,5 +1,5 @@
 import { appDataSource } from "../config/database";
-import { Post } from "../models/post.model";
+import { PostModel } from "../models/post.model";
 
 export interface IPostPayload {
   title: string;
@@ -7,21 +7,21 @@ export interface IPostPayload {
   userId: number;
 }
 
-const repository = appDataSource.getRepository(Post);
+const repository = appDataSource.getRepository(PostModel);
 
-export const getPosts = async (): Promise<Array<Post>> => {
+export const getPosts = async (): Promise<Array<PostModel>> => {
   return repository.find();
 };
 
-export const createPost = async (payload: IPostPayload): Promise<Post> => {
-  const post = new Post();
+export const createPost = async (payload: IPostPayload): Promise<PostModel> => {
+  const post = new PostModel();
   return repository.save({
     ...post,
     ...payload,
   });
 };
 
-export const getPost = async (id: number): Promise<Post | null> => {
+export const getPost = async (id: number): Promise<PostModel | null> => {
   const post = await repository.findOneBy({ id });
   return post || null;
 };

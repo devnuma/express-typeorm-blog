@@ -1,5 +1,6 @@
 import { Router } from "express";
 import PingController from "../controllers/ping.controller";
+import { commentRouter } from "./comment.router";
 import { postRouter } from "./post.router";
 import { userRouter } from "./user.router";
 
@@ -13,5 +14,6 @@ router.get("/ping", async (req, res) => {
 
 router.use("/users", userRouter);
 router.use("/posts", postRouter);
+router.use("/comments", commentRouter);
 
 export default router;

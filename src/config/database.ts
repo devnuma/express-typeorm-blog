@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
 import { Comment } from "../models/comment.model";
-import { Post } from "../models/post.model";
+import { PostModel } from "../models/post.model";
 import { User } from "../models/user.model";
 
 const appDataSource = new DataSource({
@@ -10,7 +10,7 @@ const appDataSource = new DataSource({
   username: process.env.POSTGRES_USER || "postgres",
   password: process.env.POSTGRES_PASSWORD || "asus2022",
   database: process.env.POSTGRES_DB || "postgres",
-  entities: [User, Post, Comment],
+  entities: [User, PostModel, Comment],
   synchronize: true,
 });
 
